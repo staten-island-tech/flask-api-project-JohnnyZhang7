@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Duck Gallery</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Random Duck Gallery</h1>
+      <div class="card-container">
+        {% for duck in ducks %}
+        <div class="card">
+          <img src="{{ duck.image }}" alt="{{ duck.name }}" />
+          <div class="card-body">
+            <h5 class="card-title">{{ duck.name }}</h5>
+            <p class="card-text">ID: {{ duck.id }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </body>
+</html>
