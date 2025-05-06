@@ -3,22 +3,20 @@ import requests
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route("/")
 def index():
-    response = requests.get("https://random-d.uk/api/v2/duck?count=100")
-    data = response.json()
-    duck_urls = data.get('urls', [])
 
-    ducks = []
+    response = requests.get("https://ghibliapi.vercel.app/api/films")
+    films = response.json()
 
-    for i, url in enumerate(duck_urls, start=1):    #This one gives random images unlike the pokemon one so i need this
-        ducks.append({
-            'name': f"Duck {i}",
-            'id': i,
-            'image': url
-        })
+    return render_template("index.html", films=films)
 
-    return render_template("index.html", ducks=ducks)
+@app.route("/film/<film_id>")
+def film_detail(film_id):
+    response = requests.get(f"https://ghibliapi.vercel.app/api/films/{film_id}")
+    film = response.json()
 
-if __name__ == '__main__':
+    return render_template("film.html", film=film)
+
+if __name__ == "__main__":
     app.run(debug=True)
