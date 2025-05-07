@@ -5,18 +5,31 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
+    response = requests.get("https://mhw-db.com/monsters")
+    data = response.json()
 
-    response = requests.get("https://ghibliapi.vercel.app/api/films")
-    films = response.json()
+    monsters = []
+    for monster in data:
+        monsters.append({
+            'id': monster['id'],
+            'name': monster['name'],
+            'image': monster.get('image', '')
+        }) 
+    return render_template("index.html", monsters=monsters)
 
-    return render_template("index.html", films=films)
+@app.route("/monster/<monster_id>")
+def monster_detail(monster_id):
+    response = requests.get(f"https://mhw-db.com/monsters/{monster_id}")
+    monster = response.json()
 
-@app.route("/film/<film_id>")
-def film_detail(film_id):
-    response = requests.get(f"https://ghibliapi.vercel.app/api/films/{film_id}")
-    film = response.json()
-
-    return render_template("film.html", film=film)
+    monster_details = {
+        'name': monster.get('name'),
+        'image': monster.get('image'),
+        'description': monster.get('description', 'No description available'),
+        'weaknesses': monster.get('weaknesses', []),
+        'habitats': monster.get('habitats', []),
+    }
+    return render_template("monster_detail.html", monster=monster_details)
 
 if __name__ == "__main__":
     app.run(debug=True)
