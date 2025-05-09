@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Free PC Games</title>
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>50 Free PC Games</h1>
+      <div class="card-container">
+        {% for game in games %}
+          <div class="card">
+            <img src="{{ game.thumbnail }}" alt="{{ game.name }}" class="card-img" />
+            <div class="card-body">
+              <h5 class="card-title">{{ game.name }}</h5>
+              <p class="card-text">Genre: {{ game.genre }}</p>
+              <p class="card-text">Publisher: {{ game.publisher }}</p>
+            </div>
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+  </body>
+</html>

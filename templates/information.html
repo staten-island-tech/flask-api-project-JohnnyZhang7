@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ information.name }} - Game Description</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>{{ information.name }}</h1>
+      <div class="game-details">
+        <img src="{{ information.thumbnail }}" alt="{{ information.name }}" class="game-img" />
+        <div class="game-description">
+          <p><strong>Genre:</strong> {{ information.genre }}</p>
+          <p><strong>Publisher:</strong> {{ information.publisher }}</p>
+          <p><strong>Description:</strong> {{ information.description }}</p>
+          <a href="{{ information.url }}" target="_blank">Visit Game Profile</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
