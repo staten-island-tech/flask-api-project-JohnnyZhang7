@@ -32,7 +32,8 @@ def description_link(game_id):
         'url': game['freetogame_profileurl'],
         'thumbnail': game['thumbnail'],
         'genre': game['genre'],
-        'publisher': game['publisher']
+        'publisher': game['publisher'],
+        'freetogame_profile_url': game['game_url']
     }
 
     return render_template("description.html", information=information)
