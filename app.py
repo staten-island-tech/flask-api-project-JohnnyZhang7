@@ -33,7 +33,7 @@ def description_link(game_id):
         'thumbnail': game['thumbnail'],
         'genre': game['genre'],
         'publisher': game['publisher'],
-        'freetogame_profile_url': game['game_url']
+        'freetogame_profile_url': game['game_url']   #Thats what it's named in the API so keep it game_url
     }
 
     return render_template("description.html", information=information)
