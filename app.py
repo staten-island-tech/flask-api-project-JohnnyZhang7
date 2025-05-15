@@ -21,6 +21,13 @@ def index():
 
     return render_template("index.html", games=games)
 
+
+
+
+
+
+
+
 @app.route("/game/<int:game_id>")
 def description_link(game_id):
     response = requests.get(f"https://www.freetogame.com/api/game?id={game_id}")
