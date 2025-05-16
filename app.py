@@ -6,7 +6,7 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     response = requests.get("https://www.freetogame.com/api/games?platform=pc")
-    data = response.json()[:125]
+    data = response.json()[:150]       #My API doesn't have ?limit as a parameter
 
     games = []
 
@@ -21,28 +21,25 @@ def index():
 
     return render_template("index.html", games=games)
 
-
-
-
-
-
-
-
 @app.route("/game/<int:game_id>")
 def description_link(game_id):
     response = requests.get(f"https://www.freetogame.com/api/game?id={game_id}")
     game = response.json()
-
-    information = {
+    try:
+        information = {
+        'chaojie' : game['chaoejie'],
         'name': game['title'],
         'description': game['description'],
         'thumbnail': game['thumbnail'],
         'genre': game['genre'],
         'publisher': game['publisher'],
-        'freetogame_profile_url': game['game_url']   #Thats what it's named in the API so keep it game_url
+        'freetogame_profile_url': game['freetogame_profile_url']   #Thats what it's named in the API so you have to put it in information.html too
     }
-
-    return render_template("information.html", information=information)
+    except KeyError:
+        print("Error: Key not found")
+    else:
+        return render_template("information.html", information=information)
+    
 
 if __name__ == '__main__':
     app.run(debug=True)

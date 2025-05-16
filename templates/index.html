@@ -8,12 +8,8 @@
   </head>
   <body>
     <div class="container">
-      <h1>125 Free PC Games</h1>
+      <h1>150 Free PC Games</h1>
       <div class="filters">
-        <form action="/" method="get" class="search-form">
-          <input type="text" name="genre" placeholder="Search by genre..." value="{{ genre or '' }}">
-          <button type="submit">Search</button>
-        </form>
       <div class="card-container">
         {% for game in games %}
           <div class="card">
