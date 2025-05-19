@@ -9,8 +9,10 @@
   <body>
     <div class="container">
       <h1>150 Free PC Games</h1>
-      <div class="filters">
-      <div class="card-container">
+      {% for genre, games in genre_groups.items() %}
+        <div class="genre-section">
+          <h2>{{ genre }}</h2>
+          <div class="card-container">
         {% for game in games %}
           <div class="card">
             <div class="game-card">
@@ -25,5 +27,7 @@
         {% endfor %}
       </div>
     </div>
+   {% endfor %}
+   </div>
   </body>
   </html>
