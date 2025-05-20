@@ -1,56 +1,81 @@
+/* Reset some basic styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Global styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+}
+
 .container {
-  max-width: 900px;
-  margin: 40px auto;
-  background-color: #fff;
-  padding: 30px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-.header {
+h1 {
   text-align: center;
-  margin-bottom: 30px;
-  color: #2c3e50;
+  margin: 20px 0;
+  font-size: 2.5rem;
+  color: #3c3c3c;
 }
 
-.content {
+/* Game details section */
+.game-details {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;
   gap: 20px;
-  align-items: flex-start;
-  justify-content: center;
+  margin-top: 30px;
 }
 
-.img {
-  max-width: 300px;
-  width: 100%;
-  border-radius: 10px;
+.game-img {
+  width: 300px;
+  height: 200px;
   object-fit: cover;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.text {
-  flex: 1;
-  min-width: 250px;
+.game-description {
+  flex-grow: 1;
 }
 
-.text p {
+.game-description p {
   font-size: 1.1rem;
-  margin-bottom: 12px;
-  line-height: 1.5;
+  margin-bottom: 10px;
 }
 
-.text a {
+.game-description a {
   display: inline-block;
   margin-top: 20px;
-  text-decoration: none;
-  background-color: #3498db;
-  color: white;
-  padding: 12px 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
   border-radius: 5px;
-  transition: background-color 0.3s ease;
+  text-decoration: none;
+  font-weight: bold;
 }
 
-.text a:hover {
-  background-color: #2980b9;
+.game-description a:hover {
+  background-color: #0056b3;
+}
+
+/* Add an icon next to the game publisher */
+.game-description p strong {
+  display: inline-flex;
+  align-items: center;
+}
+
+.game-description p strong::before {
+  content: "\f1e9"; /* Bootstrap "bi-book" icon */
+  font-family: "Bootstrap Icons";
+  margin-right: 10px;
+  font-size: 1.2rem;
 }
