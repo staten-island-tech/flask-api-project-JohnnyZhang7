@@ -37,12 +37,12 @@ def description_link(game_id):
     try:
         information = {
         #'chaojie' : game['chaojie'],    #If I add chaojie into the information, it isn't part of the API so returns with an error
-        'name': game['title'],
+        'name': game['title'],             #Instead of putting information.title, you have to put .name
         'description': game['description'],
         'thumbnail': game['thumbnail'],
         'genre': game['genre'],
         'publisher': game['publisher'],
-        'freetogame_profile_url': game['freetogame_profile_url']   #Thats what it's named in the API so you have to put it in information.html too
+        'freetogame_profile_url': game['freetogame_profile_url']
     }
     except KeyError:
         print("Error: Key not found")
