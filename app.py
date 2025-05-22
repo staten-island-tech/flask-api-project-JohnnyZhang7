@@ -16,6 +16,7 @@ def index():
         if game['genre'] not in genres:
             genres.append(game['genre'])    #Stores the individual genres so that I can sort them later
             genre_groups[game['genre']] = []
+            
         game_info = {
             'id': game['id'],
             'name': game['title'],
@@ -24,8 +25,6 @@ def index():
             'publisher': game['publisher']
         }
         genre_groups[game['genre']].append(game_info)
-
-
 
     return render_template("index.html", genre_groups=genre_groups)
 
@@ -37,7 +36,7 @@ def description_link(game_id):
     try:
         information = {
         #'chaojie' : game['chaojie'],    #If I add chaojie into the information, it isn't part of the API so returns with an error
-        'name': game['title'],             #Instead of putting information.title, you have to put .name
+        'name': game['title'],             #Instead of putting information.title, you have to put .name. Note to self!
         'description': game['description'],
         'thumbnail': game['thumbnail'],
         'genre': game['genre'],
