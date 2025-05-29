@@ -26,7 +26,7 @@ def index():
         }
         genre_groups[game['genre']].append(game_info)
 
-    return render_template("index.html", genre_groups=genre_groups)
+    return render_template("index_original.html", genre_groups=genre_groups)
 
 
 @app.route("/game/<int:game_id>")
@@ -46,7 +46,7 @@ def description_link(game_id):
     except KeyError:
         print("Error: Key not found")
     else:
-        return render_template("information.html", information=information)
+        return render_template("information_original.html", information=information)
     
 
 if __name__ == '__main__':

@@ -67,15 +67,7 @@ h1 {
   background-color: #0056b3;
 }
 
-/* Add an icon next to the game publisher */
 .game-description p strong {
   display: inline-flex;
   align-items: center;
-}
-
-.game-description p strong::before {
-  content: "\f1e9"; /* Bootstrap "bi-book" icon */
-  font-family: "Bootstrap Icons";
-  margin-right: 10px;
-  font-size: 1.2rem;
 }
