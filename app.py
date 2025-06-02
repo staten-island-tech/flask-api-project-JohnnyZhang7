@@ -24,7 +24,7 @@ def index():
             'genre': game['genre'],
             'publisher': game['publisher']
         }
-        genre_groups[game['genre']].append(game_info)
+        genre_groups[game['genre']].append(game_info)   #Groups games by genre by making each genre have game_info thingies and seperate from others
 
     return render_template("index_original.html", genre_groups=genre_groups)
 
